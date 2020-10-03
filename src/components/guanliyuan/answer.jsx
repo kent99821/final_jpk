@@ -4,7 +4,6 @@ import '../../assets/globel.css'
 import Highlighter from 'react-highlight-words';
 import { HomeOutlined, SearchOutlined, DeleteOutlined, PlusOutlined, EditOutlined,ExclamationCircleOutlined } from '@ant-design/icons';
 import Axios from 'axios';
-
 export default class Answer extends Component {
   AddformRef = React.createRef();
   EditformRef=React.createRef();
@@ -31,26 +30,50 @@ export default class Answer extends Component {
   //添加表单提交函数
   onFinish = values=> {
     const that=this
-    Axios({
-       url:`http://118.178.125.139:8060/admin/interactionAnswer/add?answer=${values.answer}&questionId=${values.questionId}`,
-       method:'post',
-       headers: {
-              'token': window.sessionStorage.getItem('token'),
-            }
   
-      }).then(function (response) {
-        message.success('添加成功!!!')
-        that.setState({
-          Addvisible: false,
-        })
-        that.getData((that.state.page - 1), that.state.pageSize);
-        //表单重置
+    //id查询回复信息渲染到表单
+    Axios({
+      url:`http://118.178.125.139:8060/admin/interactionQuestion/findById?id=${values.questionId}`,
+      method:'get',
+      headers: {
+             'token': window.sessionStorage.getItem('token'),
+           }
+     }).then(function(response){
+       const res=response.data.extended.InteractionQuestion
+      if(res===null)
+      {
+        message.error("问题ID不正确!!!请输入有效的问题ID")
+      }
+  else{
+    Axios({
+      url:`http://118.178.125.139:8060/admin/interactionAnswer/add?answer=${values.answer}&questionId=${values.questionId}`,
+      method:'post',
+      headers: {
+             'token': window.sessionStorage.getItem('token'),
+           }
+ 
+     }).then(function (response) {
+       message.success('添加成功!!!')
+       that.setState({
+         Addvisible: false,
+       })
+       that.getData((that.state.page - 1), that.state.pageSize);
+       //表单重置
 that.AddformRef.current.resetFields();
-      })
-      .catch(function (error) {
-        message.error('添加问题回复失败...')
-        console.log(error)
-      })
+     })
+     .catch(function (error) {
+       message.error('添加问题回复失败...')
+       console.log(error)
+     })
+  }
+     })
+     .catch(function(error){
+       console.log(error)
+     }) 
+
+
+
+
 
   }
   //添加按钮触发的模态框
@@ -68,6 +91,10 @@ that.AddformRef.current.resetFields();
     });
 
   };
+  //验证问题ID
+  check=()=>{
+console.log(123)
+  }
   // 编辑功能
  Editanswer=(aid)=>{   
     const that=this
@@ -98,28 +125,48 @@ that.AddformRef.current.resetFields();
   //编辑表单提交函数
   EditonFinish=values=>{
     const that=this
-    Axios({
-      url:`http://118.178.125.139:8060/admin/interactionAnswer/update?answer=${values.Editanswer}&id=${values.EditanswerId}&questionId=${values.EditquestionId}`,
-      method:'post',
-      headers: {
-             'token': window.sessionStorage.getItem('token'),
-           }
-     }).then(function(response){
-   //表单重置
-   that.EditformRef.current.resetFields();
-   that.setState({
-     Editvisible: false,
-   });
-   that.getData((that.state.page - 1), that.state.pageSize);
-      message.success('修改成功!!!')
+
+ //id查询回复信息渲染到表单
+ Axios({
+  url:`http://118.178.125.139:8060/admin/interactionQuestion/findById?id=${values.EditquestionId}`,
+  method:'get',
+  headers: {
+         'token': window.sessionStorage.getItem('token'),
+       }
+ }).then(function(response){
+   const res=response.data.extended.InteractionQuestion
+  if(res===null)
+  {
+    message.error("问题ID不正确!!!请输入有效的问题ID")
+  }
+else{
+  Axios({
+    url:`http://118.178.125.139:8060/admin/interactionAnswer/update?answer=${values.Editanswer}&id=${values.EditanswerId}&questionId=${values.EditquestionId}`,
+    method:'post',
+    headers: {
+           'token': window.sessionStorage.getItem('token'),
+         }
+   }).then(function(response){
+ //表单重置
+ that.EditformRef.current.resetFields();
+ that.setState({
+   Editvisible: false,
+ });
+ that.getData((that.state.page - 1), that.state.pageSize);
+    message.success('修改成功!!!')
+  
     
-      
-     })
-     .catch(function(error){
-       message.error('修改失败...')
-       console.log(error)
-     })
-    
+   })
+   .catch(function(error){
+     message.error('修改失败...')
+     console.log(error)
+   })
+}
+ })
+ .catch(function(error){
+   console.log(error)
+ }) 
+ 
   }
   //取消编辑
   editCancel=()=>{
@@ -186,7 +233,7 @@ that.AddformRef.current.resetFields();
           datas.aid = resp[i].aid;
           datas.answer = resp[i].answer;
           datas.interactionAnswer_time = resp[i].interactionAnswer_time;
-          datas.interactionQuestion_title = resp[i].interactionQuestion.interactionQuestion_title;
+         datas.interactionQuestion_title = resp[i].interactionQuestion.interactionQuestion_title;
           datass.push(datas);
         }
 

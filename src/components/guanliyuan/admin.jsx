@@ -10,8 +10,8 @@ import {
   ReadOutlined,
   ContactsOutlined,
   UngroupOutlined ,
-  GlobalOutlined
-
+  GlobalOutlined,
+  UserSwitchOutlined
 
 } from '@ant-design/icons';
 import '../../assets/houtai.css'
@@ -59,8 +59,10 @@ export default class admin extends Component {
               }}
             >
               <div className="logo"/>
-              <Menu theme="dark" mode="inline" >
-            
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']} >
+              <Menu.Item key="0" icon={<UserSwitchOutlined />}>
+                <Link to={{pathname:'/admin/welcom'}}>管理员</Link>  
+                </Menu.Item>
                 <Menu.Item key="1" icon={<PullRequestOutlined />}>
                 <Link to={{pathname:'/admin/answer'}}>互动交流回复管理</Link>  
                 </Menu.Item>

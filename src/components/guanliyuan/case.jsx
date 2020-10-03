@@ -11,13 +11,11 @@ import {
     ExclamationCircleOutlined,
     FilePptOutlined,
     CloseCircleOutlined,
-    InboxOutlined,
     DesktopOutlined,
     UploadOutlined
 
 } from '@ant-design/icons';
 import Axios from 'axios';
-const { Dragger } = Upload;
 export default class Case extends Component {
     AddformRef = React.createRef();
     EditformRef = React.createRef();
@@ -546,7 +544,7 @@ console.log(res)
                             <Button onClick={that.editCancel} type="default" className="mod">取消</Button>
                             <Button type="primary" htmlType="submit" className="mod"
                                 disabled={EditPPTfileList.length !== 1||EditVideofileList.length!==1}
-                                loading={that.state.Edituploading}
+                                loading={Edituploading}
                             >提交</Button>
                         </Form.Item>
                                 </Form>
