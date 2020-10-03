@@ -1,0 +1,32 @@
+ /* 后台导航栏 */
+ .logo {
+    height: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    margin: 16px;
+  }
+  
+  .site-layout-sub-header-background {
+    background:#001529;
+  }
+  
+  .site-layout-background {
+    height: 90vh;
+  }
+  .houtaihome{
+      height: 100vh;
+  }
+  .glxt{
+      color: #fff;
+  }
+  .logout{
+      color: #fff;
+     float: right;
+     bottom: 55px;
+  }
+.welcomeHeader{
+  text-align:center;
+  font-weight: bolder;
+}
+.actBtn{
+  margin: 5px;
+}

@@ -1,0 +1,171 @@
+.bgImg{
+width: 100%;
+}
+.area{
+    width: 99vw;
+    height: 90vh;
+}
+.area1{
+    width:99vw;
+    height: 70vh;
+}
+.jp{
+    width: 99vw;
+    height: 70vh;
+}
+.area2{
+    margin-top: 1.5vh;
+    margin-left: 0.5vw;
+    background-color: #f4f4f4;
+    width: 99vw;
+    height: 40vh;
+}
+.area3{
+    background-color: rgb(224, 216, 216);
+    width: 23vw;
+    height: 39vh;
+    position: relative;
+    left: 1.5vw;
+    text-align: center;
+    overflow:auto;
+
+}
+.area4{
+    position: relative;
+    background-color:rgb(224, 216, 216);
+    width: 45vw;
+    height: 39vh;
+    bottom: 39vh;
+    left: 26vw;
+    text-align: center;
+    overflow:auto;
+
+}
+.area5{
+    position: relative;
+    background-color: rgb(224, 216, 216);
+    width:26vw ;
+    height: 39vh;
+    bottom: 78vh;
+    left: 72vw;
+    overflow:auto;
+
+}
+
+.area6{
+    position: relative;
+    top: 0vh;
+    width: 99vw;
+    height: 10vh;
+    background-color: #0968F7;
+    font-size: 1vw;
+    font-style: oblique;
+}
+.footer{
+    color: cornsilk;
+}
+
+li{
+    list-style: none;
+}
+h1{
+    text-align:center;
+}
+h2{
+    text-align: center;
+}
+.noticeD{
+    text-align:justify;
+}
+.fw{
+    width: 10vw;
+    position: relative;
+    left: 42vw;
+    overflow: auto;
+    top: -0.5vh;
+    
+}
+.gk{
+    width: 10vw;
+    position: relative;
+    left: 50vw;
+    top: -4.2vh;
+    overflow:auto;
+}
+.wx{
+    width: 10vw;
+    position: relative;
+    left: 58vw;
+    bottom: auto;
+    overflow: auto;
+    top: -8vh;
+}
+.neirong{
+    margin-top: 2vh;
+    margin-left: 1vw;
+}
+.table{
+    width: 95vw;
+}
+.tag{
+    width: 2vw;
+    height: 1vh;
+}
+.login_container{
+    background-color:#2b4b6b;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_box{
+    width: 400px;
+    height: 250px;
+    background-color:#fff;
+    border-radius: 7px;
+
+}
+.avatar_box{
+    height: 130px;
+    width: 130px;
+    border: 2px solid #eee;
+    border-radius:50%;
+    padding: 2px;
+    box-shadow: 0 0 2px #ddd;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    bottom: 50%;
+    z-index: 99;
+    
+}
+.login_logo{
+        width:100%;
+        height:100%;
+        border-radius:50%;
+        background-color:#eee;
+    
+}
+
+
+#components-form-demo-normal-login .login-form {
+    max-width:400px;
+  }
+
+  #components-form-demo-normal-login .login-form-button {
+    width: 100%;
+  }
+  .sub{
+      float: left;
+  }
+  .res{
+      float: right;
+  }
+.mod{
+    margin: 5px;
+    float:right;
+}
+ 
+  
