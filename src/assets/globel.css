@@ -201,4 +201,6 @@ h2{
 .alink{
     color: #fff;
 }
-  
+  .edID{
+      display: none;
+  }

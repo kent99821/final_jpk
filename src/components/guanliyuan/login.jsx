@@ -23,7 +23,14 @@ export default class Login extends React.Component {
         this.formRef.current.resetFields();
       };
 
-
+      componentDidMount() {
+  
+     if(window.sessionStorage.getItem('token')!==null)
+     {
+         message.info("您已经登入管理系统!!!")
+        this.props.history.push('/admin')
+     }
+    }
 
     render() {
 

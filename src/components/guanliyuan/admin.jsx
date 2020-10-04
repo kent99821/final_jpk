@@ -11,7 +11,8 @@ import {
   ContactsOutlined,
   UngroupOutlined ,
   GlobalOutlined,
-  UserSwitchOutlined
+  UserSwitchOutlined,
+  HomeOutlined
 
 } from '@ant-design/icons';
 import '../../assets/houtai.css'
@@ -41,8 +42,11 @@ export default class admin extends Component {
       logout=()=>{
         
         window.sessionStorage.clear();
-        this.props.history.push('/home/main')
+        this.props.history.push('/login')
 
+      }
+      goHome=()=>{
+        this.props.history.push('/home/main')
       }
     render() {
         return (
@@ -95,7 +99,8 @@ export default class admin extends Component {
             <Layout>
               <Header className="site-layout-sub-header-background" style={{ padding: 0 }} >
               <h2 className='glxt'>管理系统</h2>
-              <Button type='primary' className='logout' onClick={this.logout} danger><LogoutOutlined />登出</Button>
+              <Button type='primary' className='logout' onClick={this.logout} danger icon={<LogoutOutlined />}>登出</Button>
+              <Button type='primary' className='logout' onClick={this.goHome}  icon={<HomeOutlined />}>返回首页</Button>
               </Header>
               <Content style={{ margin: '10px 10px 0' }}>
                 <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>

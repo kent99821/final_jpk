@@ -233,7 +233,10 @@ else{
           datas.aid = resp[i].aid;
           datas.answer = resp[i].answer;
           datas.interactionAnswer_time = resp[i].interactionAnswer_time;
-         datas.interactionQuestion_title = resp[i].interactionQuestion.interactionQuestion_title;
+          if(resp[i].interactionQuestion!==null)
+          {
+               datas.interactionQuestion_title = resp[i].interactionQuestion.interactionQuestion_title;
+          }
           datass.push(datas);
         }
 
@@ -393,16 +396,19 @@ else{
               }
             ]}
               label='回复内容'
+              
             >
               <Input />
             </Form.Item>
             <Form.Item name="EditanswerId" 
               label='回复ID'
+              className="edID"
             >
-              <Input disabled='true' />
+              <Input disabled='true'/>
             </Form.Item>
             <Form.Item name="EditquestionId" 
               label='问题ID'
+             
             >
               <Input />
             </Form.Item>

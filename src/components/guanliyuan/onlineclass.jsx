@@ -14,6 +14,16 @@ import {
 } from '@ant-design/icons';
 import Axios from 'axios';
 const { TextArea } = Input;
+// eslint-disable-next-line
+//检验规则
+var checkUrl =(rule,value,cb)=>{
+    const reg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
+    if (reg.test(value)) {
+       cb()
+    }
+  cb(new Error('链接格式不正确'))
+  
+  }
 export default class Onlineclass extends Component {
     AddformRef = React.createRef();
     EditformRef = React.createRef();
@@ -366,8 +376,9 @@ export default class Onlineclass extends Component {
                                 >
                                     <Form.Item name="EditItemId"
                                         label='课程ID'
+                                        className="edID"
                                     >
-                                        <Input disabled={true} />
+                                        <Input disabled={true}  />
                                     </Form.Item>
 
                                     <Form.Item name="EditItemTitle" rules={[
@@ -394,7 +405,8 @@ export default class Onlineclass extends Component {
                                         {
                                             required: true,
                                             message: '请配置链接地址'
-                                        }
+                                        },
+                                        {validator:checkUrl,trigger:'blur'}  
                                     ]}
                                         label='链接地址'
                                     >
@@ -487,7 +499,8 @@ export default class Onlineclass extends Component {
                         <Form.Item name="title" rules={[
                             {
                                 required: true,
-                                message: '请输入课程名称'
+                                message: '请输入课程名称',
+                              
                             }
                         ]}
                             label='课程名称'
@@ -497,7 +510,8 @@ export default class Onlineclass extends Component {
                         <Form.Item name="content" rules={[
                             {
                                 required: true,
-                                message: '请输入课程详细信息'
+                                message: '请输入课程详细信息',
+                                
                             }
                         ]}
                             label='课程介绍'
@@ -507,7 +521,8 @@ export default class Onlineclass extends Component {
                         <Form.Item name="CURL" rules={[
                             {
                                 required: true,
-                                message: '请配置课题链接'
+                                message: '请配置课题链接',
+                              
                             }
                         ]}
                             label='观看地址'

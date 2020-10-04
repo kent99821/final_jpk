@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Bg from './components/yonghu/bg/bg'
 import {Route,Switch,Link} from 'react-router-dom'
-import { Menu } from 'antd';
+import { Menu ,Popover} from 'antd';
 import Main from './components/yonghu/main';
 import Hudong from './components/yonghu/hudong';
 import Zaixian from './components/yonghu/zaixian'
@@ -15,11 +15,22 @@ import Gonggao from './components/yonghu/gonggao'
 export default class Home extends Component {
   state = {
     current: 'main',
+    content:"进入登录"
   };
   handleClick = e => {
     this.setState({ current: e.key });
   };
- 
+  check(){
+    if(window.sessionStorage.getItem('token')!==null)
+    {
+      this.setState({
+        content:"您已登录"
+      })
+    }
+  }
+ componentDidMount(){
+   this.check()
+ }
 render() {
   const { current } = this.state;
   return (
@@ -38,7 +49,8 @@ render() {
         <Menu.Item key="jz"><Link to={{pathname:'/home/jiangzuo'}}>讲座</Link></Menu.Item>
         <Menu.Item key="kc"><Link to={{pathname:'/home/kecheng'}}>课程</Link></Menu.Item>
         <Menu.Item key="gg"><Link to={{pathname:'/home/gonggao'}}>公告</Link></Menu.Item>
-        <Menu.Item key="gl"><Link to={{pathname:'/login'}}>管理员入口</Link></Menu.Item>
+        <Menu.Item key="gl"><Popover content={this.state.content} placement="bottom"><Link to={{pathname:'/login'}}>
+        管理员入口</Link></Popover></Menu.Item>
         <Menu.Item key="gw"><a href="https://www.gdou.edu.cn/">广东海洋大学官方网站</a></Menu.Item>
       </Menu>
      

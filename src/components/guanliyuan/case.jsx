@@ -503,8 +503,8 @@ console.log(res)
                                     onFinish={that.EditonFinish}
                                     ref={that.EditformRef}
                                 >
-                                    <Form.Item name="EditItemId" label="评测ID">
-                                     <Input disabled='true'/>
+                                    <Form.Item name="EditItemId" label="评测ID" className="edID">
+                                     <Input disabled='true' />
                                     </Form.Item>
 
                                     <Form.Item name="EditItemTitle" rules={[

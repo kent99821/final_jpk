@@ -319,8 +319,9 @@ that.AddformRef.current.resetFields();
           >
                 <Form.Item name="EditItemId" 
               label='公告信息ID'
+              className="edID"
             >
-              <Input disabled={true} />
+              <Input disabled={true}  />
             </Form.Item>
 
             <Form.Item name="EditItemTitle" rules={[

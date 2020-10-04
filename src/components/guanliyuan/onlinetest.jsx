@@ -428,7 +428,7 @@ export default class Onlinetest extends Component {
                                     onFinish={that.EditonFinish}
                                     ref={that.EditformRef}
                                 >
-                                    <Form.Item name="EditItemId" label="评测ID">
+                                    <Form.Item name="EditItemId" label="评测ID"  className="edID">
                                      <Input disabled='true'/>
                                     </Form.Item>
 

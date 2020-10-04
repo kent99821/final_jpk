@@ -353,8 +353,9 @@ that.AddformRef.current.resetFields();
             </Form.Item>
             <Form.Item name="EditItemId" 
               label='问题ID'
+              className="edID"
             >
-              <Input disabled='true' />
+              <Input disabled='true'/>
             </Form.Item>
             <Form.Item>
               <Button onClick={that.editCancel} type="default" className="mod">取消</Button>

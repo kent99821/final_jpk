@@ -319,6 +319,7 @@ that.AddformRef.current.resetFields();
           >
                 <Form.Item name="EditItemId" 
               label='讲座信息ID'
+              className="edID"
             >
               <Input disabled={true} />
             </Form.Item>

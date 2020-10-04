@@ -21,6 +21,7 @@
   .logout{
       color: #fff;
      float: right;
+     margin-left: 5px;
      bottom: 55px;
   }
 .welcomeHeader{

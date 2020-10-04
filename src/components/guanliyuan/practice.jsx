@@ -4,9 +4,21 @@ import '../../assets/globel.css'
 import Highlighter from 'react-highlight-words';
 import { HomeOutlined, SearchOutlined, DeleteOutlined, PlusOutlined, EditOutlined,ExclamationCircleOutlined } from '@ant-design/icons';
 import Axios from 'axios';
+// eslint-disable-next-line
+//检验规则
+var checkUrl =(rule,value,cb)=>{
+  const reg = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+~%\/\.\w\-_]*)?\??(?:[\-\+=&;%@\.\w_]*)#?(?:[\.\!\/\\\w]*))?)/
+  if (reg.test(value)) {
+     cb()
+  }
+cb(new Error('链接格式不正确'))
+
+}
 export default class Practice extends Component {
+
   AddformRef = React.createRef();
   EditformRef=React.createRef();
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -104,7 +116,6 @@ that.AddformRef.current.resetFields();
   //编辑表单提交函数
   EditonFinish=values=>{
     const that=this
-    
     Axios({
       url:`http://118.178.125.139:8060/admin/practicalTeach/update?id=${values.EditItemId}&practicalTeach_destination=${values.EditItemContent}&practicalTeach_title=${values.EditItemTitle}&practicalTeach_url=${values.EditItemURL}`,
       method:'post',
@@ -335,9 +346,9 @@ that.AddformRef.current.resetFields();
             ref={that.EditformRef}
           >
                 <Form.Item name="EditItemId" 
-              label='教学信息ID'
+              label='教学信息ID' className="edID"
             >
-              <Input disabled={true} />
+              <Input disabled={true}  />
             </Form.Item>
 
             <Form.Item name="EditItemTitle" rules={[
@@ -364,7 +375,8 @@ that.AddformRef.current.resetFields();
               {
                 required: true,
                 message: '请配置链接地址'
-              }
+              },
+              {validator:checkUrl,trigger:'blur'}  
             ]}
               label='链接地址'
             >
