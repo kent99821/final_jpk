@@ -7,6 +7,9 @@
   
   .site-layout-sub-header-background {
     background:#001529;
+    display:inline-flex;
+    justify-content: center;
+    flex-wrap:wrap;
   }
   
   .site-layout-background {
@@ -21,8 +24,9 @@
   .logout{
       color: #fff;
      float: right;
-     margin-left: 5px;
-     bottom: 55px;
+     margin: 5px;
+     bottom: -10px;
+   
   }
 .welcomeHeader{
   text-align:center;

@@ -120,7 +120,7 @@ that.state._notice+="<li><h2>"+that.state.gongao[i].notice_title+"<h2></li>"+"<p
    </ul>
   </Card>
   </div>
-    </div>
+   
         <div className='area6'>    
             <h2 className='footer'>快速通道</h2> 
              <p className="footer">
@@ -131,6 +131,7 @@ that.state._notice+="<li><h2>"+that.state.gongao[i].notice_title+"<h2></li>"+"<p
                <Button ghost icon={<WechatFilled/>} type="dashed"  ><Popover content={content}>微信</Popover></Button>
              
              </p>
+        </div>
         </div>
     </div>
         )
